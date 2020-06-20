@@ -6,6 +6,7 @@ import friends from "./friends.json";
 import Container from "./components/Container";
 import Row from "./components/Row";
 import Col from "./components/Col";
+import Search from "./components/Search";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -13,7 +14,7 @@ class App extends Component {
     friends
   };
 
-  removeFriend = id => {
+  sortEmployee = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     const friends = this.state.friends.filter(friend => friend.id !== id);
     // Set this.state.friends equal to the new friends array
@@ -27,10 +28,15 @@ class App extends Component {
         <Title/>
         <Container>
           <Row>
+            <Col size="md-12">
+              <Search/>
+            </Col>
+          </Row>
+          <Row>
         {this.state.friends.map(friend => (
           <Col size="md-12">
           <FriendCard
-            removeFriend={this.removeFriend}
+            sortEmployee={this.sortEmployee}
             id={friend.id}
             key={friend.id}
             name={friend.name}

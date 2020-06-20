@@ -1,29 +1,31 @@
 import React from "react";
 import "./style.css";
+import Row from "../Row";
+import Col from "../Col";
+
 
 function FriendCard(props) {
   return (
-    <div className="card">
+    <Row>
+    <Col size="md-4">
       <div className="img-container">
         <img alt={props.name} src={props.image} />
       </div>
-      <div className="content">
-        <ul>
-          <li>
+      </Col>
+      <Col size="md-4">
             <strong>Name:</strong> {props.name}
-          </li>
-          <li>
+            </Col>
+            <Col size="md-4">
             <strong>Occupation:</strong> {props.occupation}
-          </li>
-          <li>
+            </Col>
+            <Col size="md-4">
             <strong>Location:</strong> {props.location}
-          </li>
-        </ul>
-      </div>
-      <span onClick={() => props.removeFriend(props.id)} className="remove">
-        𝘅
+            </Col>
+      
+      <span onClick={() => props.sortEmployee(props.id)} className="sort">
+        ^
       </span>
-    </div>
+    </Row>
   );
 }
 
