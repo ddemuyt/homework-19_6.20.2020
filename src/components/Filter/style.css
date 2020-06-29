@@ -1,0 +1,13 @@
+.sort {
+    color: #70838f;
+    font-size: 15px;
+    font-weight: bold;
+    /* position: absolute; */
+    /* top: -20px;
+    right: 5px; */
+    cursor: pointer;
+  }
+  
+  .sort:hover {
+    color: #d50000;
+  }

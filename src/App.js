@@ -1,27 +1,31 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import EmployeeCard from "./components/EmployeeCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import friends from "./friends.json";
+import employees from "./employees.json";
 import Container from "./components/Container";
 import Row from "./components/Row";
 import Col from "./components/Col";
 import Search from "./components/Search";
+import Filter from "./components/Filter";
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
   state = {
-    friends
+    employees
   };
 
   sortEmployee = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
+    console.log(this.state.employees);
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  sortEmployeeName = id => {
+    const employees = [...this.state.employees];
+    employees.sort((a, b) => {
+      return a.name.localeCompare(b.name);
+    });
+    this.setState({ employees });
+  };
+
   render() {
     return (
       <Wrapper>
@@ -31,18 +35,26 @@ class App extends Component {
             <Col size="md-12">
               <Search/>
             </Col>
+            </Row>
+            <Row>
+            <Col size="md-12">
+              <Filter
+              sortEmployeeName={this.sortEmployeeName}
+              sortEmployee={this.sortEmployee}/>
+            </Col>
           </Row>
           <Row>
-        {this.state.friends.map(friend => (
+        {this.state.employees.map(employee => (
           <Col size="md-12">
-          <FriendCard
-            sortEmployee={this.sortEmployee}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
+          <EmployeeCard
+            id={employee.id}
+            key={employee.id}
+            name={employee.name}
+            image={employee.image}
+            occupation={employee.occupation}
+            location={employee.location}
+            email={employee.email}
+            phone={employee.phone}
           />
           </Col>
         ))}

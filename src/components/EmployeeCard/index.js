@@ -4,7 +4,7 @@ import Row from "../Row";
 import Col from "../Col";
 
 
-function FriendCard(props) {
+function EmployeeCard(props) {
   return (
     <Row>
     <Col size="md-4">
@@ -13,20 +13,19 @@ function FriendCard(props) {
       </div>
       </Col>
       <Col size="md-4">
-            <strong>Name:</strong> {props.name}
+            <strong></strong> {props.name}
             </Col>
             <Col size="md-4">
-            <strong>Occupation:</strong> {props.occupation}
+            <strong></strong> {props.occupation}
             </Col>
             <Col size="md-4">
-            <strong>Location:</strong> {props.location}
+            <strong></strong> {props.email}
             </Col>
-      
-      <span onClick={() => props.sortEmployee(props.id)} className="sort">
-        ^
-      </span>
+            <Col size="md-4">
+            <strong></strong> {props.phone}
+            </Col>
     </Row>
   );
 }
 
-export default FriendCard;
+export default EmployeeCard;

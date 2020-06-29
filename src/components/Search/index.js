@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function Search() {
-  return <div ><form><input type="text" value="Search"></input></form></div>;
+  return <div><input type="text" value="Search"></input></div>;
 }
 
 export default Search;
